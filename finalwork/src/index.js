@@ -15,7 +15,6 @@ async function connect(props) {
       filters: [{ services: ['heart_rate'] }],
       acceptAllDevices: false,
     });
-    console.log(`%c\n👩🏼‍⚕️`, 'font-size: 82px;', 'Starting HR...\n\n');
     const server = await device.gatt.connect();
     const service = await server.getPrimaryService('heart_rate');
     const char = await service.getCharacteristic('heart_rate_measurement');
@@ -38,7 +37,6 @@ function updateHeartRate(event, chart) {
   heartRateValueElement.textContent = heartRate;
   chart.data.datasets[0].data = hrData;
   chart.update();
-  console.log(`%c\n💚 ${heartRate} ${arrow}`, 'font-size: 24px;', '\n\n(To disconnect, refresh or close tab)\n\n');
 }
 
 // Event listener for the connect button
@@ -47,8 +45,8 @@ document.getElementById('connectButton').addEventListener('click', () => {
   connect({ onChange: (event) => updateHeartRate(event, chart) }).then((char) => {
     // Create canvas element
     const canvas = document.createElement('canvas');
-    canvas.width = 400;
-    canvas.height = 200;
+    canvas.width = 1000;
+    canvas.height = 400;
     document.body.appendChild(canvas);
     
     // Create line chart
@@ -59,21 +57,33 @@ document.getElementById('connectButton').addEventListener('click', () => {
         labels: new Array(200).fill(0).map((_, i) => i),
         datasets: [{
           data: hrData,
-          label: 'Heart Rate',
-          borderColor: '#3e95cd',
-          fill: false
+          borderColor: '#F15025',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHitRadius: 0,
+          backgroundColor: '#F15025',
+          fill: true
         }]
       },
       options: {
-        responsive: false,
+        responsive: true,
         animation: false,
+        legend: {
+          display: false
+        },
         scales: {
-          yAxes: [{
-            ticks: {
-              suggestedMax: 200,
-              suggestedMin: 0
-            }
-          }]
+          x: {
+            display: false,
+            grid: {
+              display: false,
+            },
+          },
+          y: {
+            display: false,
+            grid: {
+              display: false,
+            },
+          }
         }
       }
     });
