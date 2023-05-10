@@ -1,37 +1,12 @@
-/*
-
-Build uppon following sourcecode
-Source: https://gist.github.com/sbrichardson/6e8ad851311235eee5a63c75003000d3
-
-*/
+import Chart from 'chart.js/auto';
 
 // Array to store heart rate data for the graph
 let hrData = new Array(200).fill(10);
 
+let chart;
+
 // Variable to store the heart rate value element
 let heartRateValueElement;
-
-// Function to set up the console graph example
-function setupConsoleGraphExample(height, width) {
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
-  canvas.height = height;
-  canvas.width = width;
-  context.fillStyle = '#fff';
-  window.console.graph = data => {
-    const n = data.length;
-    const units = Math.floor(width / n);
-    width = units * n;
-    context.clearRect(0, 0, width, height);
-    for (let i = 0; i < n; ++i) {
-      context.fillRect(i * units, 0, units, 100 - (data[i] / 2));
-    }
-    console.log('%c ',
-      `font-size: 0; padding-left: ${width}px; padding-bottom: ${height}px;
-       background: url("${canvas.toDataURL()}"), -webkit-linear-gradient(#eee, #888);`,
-    );
-  };
-}
 
 // Function to connect to the heart rate device via Bluetooth
 async function connect(props) {
@@ -52,26 +27,56 @@ async function connect(props) {
   }
 }
 
-// Function to print the heart rate value and update the graph
-function printHeartRate(event) {
+// Function to update the heart rate value and graph
+function updateHeartRate(event, chart) {
   const heartRate = event.target.value.getInt8(1);
   const prev = hrData[hrData.length - 1];
   hrData[hrData.length] = heartRate;
   hrData = hrData.slice(-200);
   let arrow = '';
   if (heartRate !== prev) arrow = heartRate > prev ? '⬆' : '⬇';
-  console.clear();
-  console.graph(hrData);
-  console.log(`%c\n💚 ${heartRate} ${arrow}`, 'font-size: 24px;', '\n\n(To disconnect, refresh or close tab)\n\n');
   heartRateValueElement.textContent = heartRate;
+  chart.data.datasets[0].data = hrData;
+  chart.update();
+  console.log(`%c\n💚 ${heartRate} ${arrow}`, 'font-size: 24px;', '\n\n(To disconnect, refresh or close tab)\n\n');
 }
 
 // Event listener for the connect button
 document.getElementById('connectButton').addEventListener('click', () => {
   heartRateValueElement = document.getElementById('heartRateValue');
-  connect({ onChange: printHeartRate });
+  connect({ onChange: (event) => updateHeartRate(event, chart) }).then((char) => {
+    // Create canvas element
+    const canvas = document.createElement('canvas');
+    canvas.width = 400;
+    canvas.height = 200;
+    document.body.appendChild(canvas);
+    
+    // Create line chart
+    const ctx = canvas.getContext('2d');
+    chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: new Array(200).fill(0).map((_, i) => i),
+        datasets: [{
+          data: hrData,
+          label: 'Heart Rate',
+          borderColor: '#3e95cd',
+          fill: false
+        }]
+      },
+      options: {
+        responsive: false,
+        animation: false,
+        scales: {
+          yAxes: [{
+            ticks: {
+              suggestedMax: 200,
+              suggestedMin: 0
+            }
+          }]
+        }
+      }
+    });
+  });
 });
-
-// Call the setup function to initialize the console graph example
-setupConsoleGraphExample(100, 400);
 
