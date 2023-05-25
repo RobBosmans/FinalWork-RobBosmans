@@ -3,7 +3,7 @@ import Chart from 'chart.js/auto';
 // Array to store heart rate data for the graph
 let hrData = new Array(200).fill(10);
 
-let chart;
+let chart; 
 
 // Variable to store the heart rate value element
 let heartRateValueElement;

@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bluetooth Heart Rate Monitor</title>
+  <title>Generative Indoor Cycling</title>
   <script type="module" src="/finalwork/dist/main.js"></script>
   <script src="https://kit.fontawesome.com/d2b254cfae.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <H1>Generative Indoor Cycling</H1>
   <div id="button">
     <button id="connectButton">Connect</button>
   </div>
-  <div id="hrm">
-    <p><span id="heartRateValue">- </span> <i id="icon" class="fa-solid fa-heart-pulse"></i></p>
+  <div id="metrics">
+    <div id="Lmetrics">
+      <div id="hrm">
+        <p><span id="heartRateValue">- </span> <i id="icon" class="fa-solid fa-heart"></i></p>
+      </div>
+      <div id="rpm">
+        <p>89rpm</p>
+      </div>
+    </div>
+    <div id="watt">
+      <p>300W</p>
+    </div>
+    <div id="time">
+      <p>01:24</p>
+    </div>
   </div>
+  
 </body>
 </html>

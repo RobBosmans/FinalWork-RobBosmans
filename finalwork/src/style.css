@@ -1,54 +1,93 @@
-/* Overall page layout */
+/* ------------- body ------------- */
 body {
     background-color: #333;
     font-family: Arial, sans-serif;
     margin: auto;
     max-width: 80%;
     padding: 0;
+    background-image: url(/finalwork/Pictures/TEMP_BG.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   
 h1 {
-    margin: 10;
-    text-align: center;
-    color: #fff;
-    }
-
-p   {
-    color: #fff;
-    font-size: 48px;
-    margin: 20px;
-    }
-
-#icon{
-    font-size: 30px;
+  margin: 10;
+  text-align: center;
+  color: #fff;
 }
 
-#hrm {
-    display: flex;
-    justify-content: center;
+p {
+  color: #fff;
+  font-size: 48px;
+  margin: 20px;
 }
 
-  /* Connect button styling */
+/* ------------- metrics div ------------- */
+
+#metrics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 35%;
+  margin: auto;
+  margin-top: 900px;
+  
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+#metrics p{
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+#Lmetrics p{
+  font-size: 25px;
+  font-weight: 700;
+  margin: 10;
+}
+
+#watt p{
+  font-size: 50px;
+  font-weight: 700;
+}
+
+#time p{
+  font-size: 25px;
+  font-weight: 700;
+  margin: 10;
+}
+
+#icon {
+  font-size: 20px;
+}
+
+/* ------------- connect button ------------- */
 #button{
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-  button {
-    background-color: #333;
-    color: white;
-    border: solid 2px white;
-    padding: 10px 50px;
-    border-radius: 20px;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    text-align: center;
-  }
-  button:hover {
-    background-color: white;
-    color: #333;
-    transition: 0.2s;
-  }
+button {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px 50px;
+  cursor: pointer;
+  text-align: center;
+}
+button:hover {
+  background-color: white;
+  color: #333;
+  transition: 0.2s;
+}
   
   
