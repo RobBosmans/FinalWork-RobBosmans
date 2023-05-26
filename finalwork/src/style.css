@@ -9,18 +9,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
   }
-  
-h1 {
-  margin: 10;
-  text-align: center;
-  color: #fff;
-}
-
-p {
-  color: #fff;
-  font-size: 48px;
-  margin: 20px;
-}
 
 /* ------------- metrics div ------------- */
 
@@ -30,7 +18,7 @@ p {
   align-items: center;
   max-width: 35%;
   margin: auto;
-  margin-top: 900px;
+  margin-bottom: 10%;
   
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -42,6 +30,9 @@ p {
 
 #metrics p{
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 48px;
+  margin: 20px;
 }
 
 #Lmetrics p{
@@ -65,10 +56,51 @@ p {
   font-size: 20px;
 }
 
+/* ------------- connectDevices ------------- */
+
+#connectDevices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 25%;
+  margin: auto;
+  margin-top: 25%;
+  
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+#connectDevices h1{
+  font-size: 30px;
+  letter-spacing: 5px;
+  margin: 0;
+  margin-top: 20px;
+}
+
+#connectDevices p{
+  font-size: 20px;
+  margin: 0;
+  margin-top: 20px;
+}
+
 /* ------------- connect button ------------- */
 #button{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: baseline;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#button p{
+  text-align: center;
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 button {
@@ -80,7 +112,7 @@ button {
   border-radius: 10px;
   font-size: 20px;
   font-weight: 700;
-  padding: 10px 50px;
+  padding: 10px 20px;
   cursor: pointer;
   text-align: center;
 }
@@ -88,6 +120,11 @@ button:hover {
   background-color: white;
   color: #333;
   transition: 0.2s;
+}
+
+#startButton button{
+  padding: 10px 90px;
+  margin: 20px;
 }
   
   

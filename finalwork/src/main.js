@@ -34,7 +34,7 @@ function updateHeartRate(event) {
 }
 
 // Event listener for the connect button
-document.getElementById('connectButton').addEventListener('click', () => {
+document.getElementById('HRMconnectButton').addEventListener('click', () => {
   heartRateValueElement = document.getElementById('heartRateValue');
   connect({ onChange: (event) => updateHeartRate(event) })
 });

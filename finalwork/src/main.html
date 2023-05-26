@@ -7,25 +7,42 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="button">
-    <button id="connectButton">Connect</button>
-  </div>
-  <div id="metrics">
-    <div id="Lmetrics">
-      <div id="hrm">
-        <p><span id="heartRateValue">- </span> <i id="icon" class="fa-solid fa-heart"></i></p>
+  <section class="connectDevices">
+    <div id="connectDevices">
+      <h1>FLOWCYCLE</h1>
+      <p>Connect your devices</p>
+      <div id="button">
+        <p>Heartrate <i id="icon" class="fa-solid fa-heart"></i></p>
+        <button id="HRMconnectButton">Connect</button>
       </div>
-      <div id="rpm">
-        <p>89rpm</p>
+      <div id="button">
+        <p>Power <i id="icon" class="fa-solid fa-bolt"></i></p>
+        <button id="PowerConnectButton">Connect</button>
+      </div>
+      <div id="startButton">
+        <button id="Start">GO</button>
       </div>
     </div>
-    <div id="watt">
-      <p>300W</p>
+  </section>
+  <section class="metrics">
+    <div id="metrics">
+      <div id="Lmetrics">
+        <div id="hrm">
+          <p><span id="heartRateValue">- </span> <i id="icon" class="fa-solid fa-heart"></i></p>
+        </div>
+        <div id="rpm">
+          <p>89rpm</p>
+        </div>
+      </div>
+      <div id="watt">
+        <p>300W</p>
+      </div>
+      <div id="time">
+        <p>01:24</p>
+      </div>
     </div>
-    <div id="time">
-      <p>01:24</p>
-    </div>
-  </div>
+  </section>
+  
   
 </body>
 </html>
