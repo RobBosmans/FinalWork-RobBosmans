@@ -111,8 +111,8 @@ function go (){
     document.getElementById('connectDevices').style.visibility = "hidden";
     document.getElementById('metrics').style.visibility = "visible";
     document.getElementById('workout').style.visibility = "visible";
+    timeCounter();
   })
-  timeCounter();
 }
 
 
