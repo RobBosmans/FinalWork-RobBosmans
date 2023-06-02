@@ -1,3 +1,4 @@
+
 // Array to store heart rate data for the graph
 let hrData = new Array(200).fill(10);
 
@@ -39,3 +40,33 @@ document.getElementById('HRMconnectButton').addEventListener('click', () => {
   connect({ onChange: (event) => updateHeartRate(event) })
 });
 
+// JSON File uploader based on code by Github user "mwrouse", :https://gist.github.com/mwrouse/f061f6f56cbc8b0576367bddee523a79
+
+function workoutUploader (){
+  window.addEventListener('load', function() {
+      var upload = document.getElementById('fileInput');
+      
+      // Make sure the DOM element exists
+      if (upload) 
+      {
+        upload.addEventListener('change', function() {
+          // Make sure a file was selected
+          if (upload.files.length > 0) 
+          {
+            var reader = new FileReader(); // File reader to read the file 
+            
+            // This event listener will happen when the reader has read the file
+            reader.addEventListener('load', function() {
+              var result = JSON.parse(reader.result); // Parse the result into an object 
+              console.log(result);
+              console.log(result.steps)
+            });
+            
+            reader.readAsText(upload.files[0]); // Read the uploaded file
+          }
+        });
+      }
+    });
+}
+
+workoutUploader();
