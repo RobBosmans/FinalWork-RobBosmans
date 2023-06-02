@@ -7,18 +7,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <section class="workout">
+    <div id="workout" style="visibility: hidden;"> 
+      <div id="workoutElement">
+        No workout selected
+      </div>
+    </div>
+  </section>
+
   <section class="connectDevices">
     <div id="connectDevices">
       <h1>FLOWCYCLE</h1>
       <p>Connect your devices</p>
       <div id="button">
-        <p>Heartrate <i id="icon" class="fa-solid fa-heart"></i></p>
+        <p>Heartrate</p>
         <button id="HRMconnectButton">Connect</button>
       </div>
-      <div id="button">
+      <!-- <div id="button">
         <p>Power <i id="icon" class="fa-solid fa-bolt"></i></p>
         <button id="PowerConnectButton">Connect</button>
-      </div>
+      </div> -->
       <div>
         <input type="file" id="fileInput">
       </div>
@@ -27,8 +35,9 @@
       </div>
     </div>
   </section>
-  <section class="metrics" style="visibility: hidden;">
-    <div id="metrics">
+
+  <section class="metrics" >
+    <div id="metrics" style="visibility: hidden;">
       <div id="Lmetrics">
         <div id="hrm">
           <p><span id="heartRateValue">- </span> <i id="icon" class="fa-solid fa-heart"></i></p>
@@ -41,7 +50,7 @@
         <p>300W</p>
       </div>
       <div id="time">
-        <p>01:24</p>
+        <p><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></p>
       </div>
     </div>
   </section>
