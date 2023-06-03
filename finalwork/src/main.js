@@ -1,6 +1,7 @@
-
 // Array to store heart rate data
 let hrData = new Array(200).fill(10);
+
+let totalTime = 0;
 
 // Variable to store the heart rate value element
 let heartRateValueElement;
@@ -32,6 +33,7 @@ function updateHeartRate(event) {
   let arrow = '';
   if (heartRate !== prev) arrow = heartRate > prev ? '⬆' : '⬇';
   heartRateValueElement.textContent = heartRate;
+  localStorage.setItem(hrm, heartRateValueElement)
 }
 
 // Event listener for the connect button
@@ -40,8 +42,12 @@ document.getElementById('HRMconnectButton').addEventListener('click', () => {
   connect({ onChange: (event) => updateHeartRate(event) })
 });
 
-// JSON File uploader based on code by Github user "mwrouse", :https://gist.github.com/mwrouse/f061f6f56cbc8b0576367bddee523a79
+//calculate percentage
+let calcPercent = function(x, y) {
+  return 100*x/y;
+};
 
+// JSON File uploader based on code by Github user "mwrouse", :https://gist.github.com/mwrouse/f061f6f56cbc8b0576367bddee523a79
 function workoutUploader (){
   window.addEventListener('load', function() {
       let upload = document.getElementById('fileInput');
@@ -59,25 +65,31 @@ function workoutUploader (){
             reader.addEventListener('load', function() {
               let result = JSON.parse(reader.result); // Parse the result into an object 
               let interval = result.steps
+              let duration = result.duration
+              totalTime = duration
+
               interval.forEach(step => {
                 if(step.hasOwnProperty('reps')){
                   console.log(step.reps)
 
                   let repeats = step.steps;
-
-                  repeats.forEach(rep => {
-                    document.getElementById('workout').insertAdjacentHTML("beforeend", `
-                    <div id="workoutElement">
-                    ${rep.duration/60}min
-                    ${rep._hr.end}bpm
-                    </div>`);
-                  })
-
+                  
+                  for(let i = 0; i < step.reps; i++){
+                    repeats.forEach(rep => {
+                      let divWidth = calcPercent(rep.duration, totalTime)+"%"; 
+                      document.getElementById('workout').insertAdjacentHTML("beforeend", `
+                      <div id="workoutElement" style="width:${divWidth};">
+                      ${rep.duration/60}m <br>
+                      ${rep._hr.end} <i id="smallIcon" class="fa-solid fa-heart"></i>
+                      </div>`);
+                    })
+                  }
                 } else {
+                  let divWidth = calcPercent(step.duration, totalTime)+"%";
                   document.getElementById('workout').insertAdjacentHTML("beforeend", `
-                  <div id="workoutElement">
-                    ${step.duration/60}min
-                    ${step._hr.end}bpm
+                  <div id="workoutElement" style="width:${divWidth};">
+                    ${step.duration/60}m <br>
+                    ${step._hr.end} <i id="smallIcon" class="fa-solid fa-heart"></i>
                   </div>`);
                 }
                 
@@ -89,6 +101,23 @@ function workoutUploader (){
         });
       }
     });
+}
+
+// progress bar based upon following example: https://www.geeksforgeeks.org/creating-progress-bar-using-javascript/
+function workoutUpdate() {
+  let progressBar = document.getElementById("workoutProgressBar");   
+  let width = 1;
+  let identity = setInterval(scene, 1000);
+  console.log(totalTime);
+
+  function scene() {
+    if (width >= totalTime) {
+      clearInterval(identity);
+    } else {
+      width++; 
+      progressBar.style.width = calcPercent(width, totalTime)+"%";
+    }
+  }
 }
 
 // time counter function based on example found here: https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
@@ -111,7 +140,9 @@ function go (){
     document.getElementById('connectDevices').style.visibility = "hidden";
     document.getElementById('metrics').style.visibility = "visible";
     document.getElementById('workout').style.visibility = "visible";
+    document.getElementById('workoutProgressBar').style.visibility = "visible";
     timeCounter();
+    workoutUpdate();
   })
 }
 

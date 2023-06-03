@@ -3,14 +3,21 @@
 <head>
   <title>Generative Indoor Cycling</title>
   <script type="module" src="/finalwork/src/main.js"></script>
+  <script type="module" src="TDControl.js" defer></script>
   <script src="https://kit.fontawesome.com/d2b254cfae.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <section class="workout">
-    <div id="workout" style="visibility: hidden;"> 
+  <section class="workout" id="workout_status">
+    <div id="workout" style="visibility: hidden;">
     </div>
+    <div id="workoutProgressBar" style="visibility: hidden;">
+    </div>
+    
   </section>
+
+  <!-- <h2>Slider to controld TD</h2>
+    <input type="range" class="controllTD"> -->
 
   <section class="connectDevices">
     <div id="connectDevices">
@@ -24,7 +31,7 @@
         <p>Power <i id="icon" class="fa-solid fa-bolt"></i></p>
         <button id="PowerConnectButton">Connect</button>
       </div> -->
-      <div>
+      <div id="fileInputDiv">
         <input type="file" id="fileInput">
       </div>
       <div id="startButton">
