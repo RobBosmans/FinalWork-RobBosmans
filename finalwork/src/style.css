@@ -1,11 +1,11 @@
 /* ------------- body ------------- */
 body {
-    background-color: #333;
+    background-color: #000;
     font-family: Arial, sans-serif;
     margin: auto;
     max-width: 80%;
     padding: 0;
-    background-image: url(/finalwork/Pictures/TEMP_BG.jpg);
+    /* background-image: url(/finalwork/Pictures/TEMP_BG.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -167,7 +167,7 @@ section.workout {
   margin: 0px;
   padding: 10px 0px;
 
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   color: white;
   border: none;
@@ -184,7 +184,7 @@ section.workout {
   margin: 0px;
   padding: 10px 0px;
 
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(50, 50, 50, 0.2);
   backdrop-filter: blur(10px);
   color: white;
   border: none;
