@@ -10,6 +10,10 @@ body {
     background-repeat: no-repeat;
   }
 
+iframe{
+  position: absolute;
+}
+
 /* ------------- metrics div ------------- */
 
 #metrics {
