@@ -151,7 +151,7 @@ function userguide(){
     <div id="userguide">
     <h2>Userguide</h2>
     <ol>
-      <li>Download the <a href="/finalwork/TouchDesigner/websockets-FinalWork.14.toe">TouchDesigner file</a></li>
+      <li>Download the <a href="/TouchDesigner/websockets-FinalWork.14.toe">TouchDesigner file</a></li>
       <li>Open the TouchDesigner file and press F1</li>
       <li>Connect your heartratemonitor</li>
       <li>Go to <a target=”_blank” href="https://vdo.ninja/v16/">vdo.ninja</a> and remote screenshare</li>
@@ -162,7 +162,7 @@ function userguide(){
       <li>Make a workout on <a href="https://intervals.icu/"> intervals.icu</a></li>
       <li>Export it as a JSON file</li>
       <li>Upload the JSON file</li>
-      <p><a href="/finalwork/Workout/workouts.zip">Workout examples</a></p>
+      <p><a href="/Workout/workouts.zip">Workout examples</a></p>
     </ol>
     <h2>Troubleshooting</h2>
     <ul>
