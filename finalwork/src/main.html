@@ -6,59 +6,54 @@
   <script type="module" src="TDControl.js" defer></script>
   <script src="https://kit.fontawesome.com/d2b254cfae.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/cnh3trv.css">
 </head>
 <body>
-  <section class="workout" id="workout_status">
-    <div id="workout" style="visibility: hidden;">
-    </div>
-    <div id="workoutProgressBar" style="visibility: hidden;">
-    </div>
+  <main>
+    <div id="iframe">
     
-  </section>
-
-  <!-- <h2>Slider to controld TD</h2>
-    <input type="range" class="controllTD"> -->
-
-  <section class="connectDevices">
-    <div id="connectDevices">
-      <h1>FLOWCYCLE</h1>
-      <p>Connect your devices</p>
-      <div id="button">
-        <p>Heartrate</p>
-        <button id="HRMconnectButton">Connect</button>
-      </div>
-      <!-- <div id="button">
-        <p>Power <i id="icon" class="fa-solid fa-bolt"></i></p>
-        <button id="PowerConnectButton">Connect</button>
-      </div> -->
-      <div id="fileInputDiv">
-        <input type="file" id="fileInput">
-      </div>
-      <div id="startButton">
-        <button id="Start">GO</button>
-      </div>
     </div>
-  </section>
-
-  <section class="metrics" >
-    <div id="metrics" style="visibility: hidden;">
-      <div id="Lmetrics">
+    <section class="workout" id="workout_status">
+      <div id="workout" style="visibility: hidden;">
+      </div>
+      <div id="workoutProgressBar" style="visibility: hidden;">
+      </div>
+      
+    </section>
+    <section class="connectDevices" id="mainMenu">
+      <div id="connectDevices">
+        <h1>FLOWCYCLE</h1>
+        <p>Connect your devices</p>
+        <div id="button">
+          <p>Heartrate</p>
+          <button id="HRMconnectButton">Connect</button>
+        </div>
+        <div id="fileInputDiv">
+          <input type="file" id="fileInput">
+        </div>
+        <div id="link">
+          <p>Enter link from <a target=”_blank” href="https://vdo.ninja/v16/">vdo.ninja</a></p>
+          <input id="linkInput" type="text">
+        </div>
+        <div id="startButton">
+          <button id="Start">GO</button>
+        </div>
+        <div id="guideButton">
+          <button id="guide">Userguide</button>
+        </div>
+      </div>
+    </section>
+  
+    <section class="metrics" >
+      <div id="metrics" style="visibility: hidden;">
         <div id="hrm">
           <p><span id="heartRateValue">- </span> <i id="icon" class="fa-solid fa-heart"></i></p>
         </div>
-        <div id="rpm">
-          <p>89rpm</p>
+        <div id="time">
+          <p><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></p>
         </div>
       </div>
-      <div id="watt">
-        <p>300W</p>
-      </div>
-      <div id="time">
-        <p><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></p>
-      </div>
-    </div>
-  </section>
-  
-  
+    </section>
+  </main>
 </body>
 </html>

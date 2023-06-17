@@ -1,3 +1,5 @@
+// TouchDesigner WebSocket based upon following example: https://www.youtube.com/watch?v=P-N8-sJEM6s&list=PLgfxkm9xFocaQvweC3KF3uIeQyDhsLhWX
+
 let ws = new WebSocket("wss://socket-server-finalwork.onrender.com:443");
 
 //
@@ -9,12 +11,6 @@ document.getElementById('Start').addEventListener('click', () => {
   }
   setInterval(sendHrmData, 1000);
 })
-
-/* let controlTD = document.querySelector(".controllTD");
-controlTD.addEventListener("input", (event) => {
-  console.log(controlTD.value);
-  ws.send(JSON.stringify({ slider1: controlTD.value / 100.0 }));
-}); */
 
 ws.addEventListener("open", (event) => {
   console.log("websocket opened");

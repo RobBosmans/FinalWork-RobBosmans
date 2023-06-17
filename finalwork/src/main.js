@@ -1,3 +1,4 @@
+// B heartrate monitor reader based upon following example: https://gist.github.com/sbrichardson/6e8ad851311235eee5a63c75003000d3 
 // Array to store heart rate data
 let hrData = new Array(200).fill(10);
 
@@ -122,30 +123,69 @@ function workoutUpdate() {
 
 // time counter function based on example found here: https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
 function timeCounter(){
-  var sec = 0;
+  let sec = 0;
 
   function pad(val) {
       return val > 9 ? val : "0" + val;
   }
-  var timer = setInterval(function () {
+  let timer = setInterval(function () {
     document.getElementById("seconds").innerHTML = pad(++sec % 60);
     document.getElementById("minutes").innerHTML = pad(parseInt(sec / 60 % 60, 10));
     document.getElementById("hours").innerHTML = pad(parseInt(sec / 3600 % 60, 10));
   }, 1000);
 }
 
+function TouchDesignerStream(){
+  let streamlink = document.getElementById('linkInput').value;
+  document.getElementById('iframe').innerHTML = `
+  <iframe src="${streamlink}" frameborder="0" style="background-color: #000"></iframe>
+  `;
+}
+
+function userguide(){
+  new Promise((resolve) => {
+    document.getElementById('guideButton').addEventListener('click', resolve);
+  }).then(insertUserguide);
+  function insertUserguide(){
+    document.getElementById('mainMenu').insertAdjacentHTML("beforeend",  `
+    <div id="userguide">
+    <h2>Userguide</h2>
+    <ol>
+      <li>Download the <a href="/finalwork/TouchDesigner/websockets-FinalWork.14.toe">TouchDesigner file</a></li>
+      <li>Open the TouchDesigner file and press F1</li>
+      <li>Connect your heartratemonitor</li>
+      <li>Go to <a target=”_blank” href="https://vdo.ninja/v16/">vdo.ninja</a> and remote screenshare</li>
+      <li>Choose TouchDesigner window and enter link</li>
+    </ol>
+    <h3>Optional</h3>
+    <ol>
+      <li>Make a workout on <a href="https://intervals.icu/"> intervals.icu</a></li>
+      <li>Export it as a JSON file</li>
+      <li>Upload the JSON file</li>
+      <p><a href="/finalwork/Workout/workouts.zip">Workout examples</a></p>
+    </ol>
+    <h2>Troubleshooting</h2>
+    <ul>
+      <li>If the visuals aren't being influenced turn the button in the TouchDesigner window off and on again</li>
+    </ul>
+  </div>
+    `)
+  }
+}
+
 // function to start the application
 function go (){
   document.getElementById('startButton').addEventListener('click', () => {
-    document.getElementById('connectDevices').style.visibility = "hidden";
+    document.getElementById('mainMenu').style.visibility = "hidden";
     document.getElementById('metrics').style.visibility = "visible";
     document.getElementById('workout').style.visibility = "visible";
     document.getElementById('workoutProgressBar').style.visibility = "visible";
+    TouchDesignerStream();
     timeCounter();
     workoutUpdate();
   })
 }
 
-
+userguide();
 workoutUploader();
 go();
