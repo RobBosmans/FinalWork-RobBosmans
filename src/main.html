@@ -7,53 +7,56 @@
   <script src="https://kit.fontawesome.com/d2b254cfae.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://use.typekit.net/cnh3trv.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <main>
-    <div id="iframe">
-    
-    </div>
-    <section class="workout" id="workout_status">
-      <div id="workout" style="visibility: hidden;">
-      </div>
-      <div id="workoutProgressBar" style="visibility: hidden;">
-      </div>
+  <div id="backgroundImage">
+    <main>
+      <div id="iframe">
       
-    </section>
-    <section class="connectDevices" id="mainMenu">
-      <div id="connectDevices">
-        <h1>FLOWCYCLE</h1>
-        <p>Connect your devices</p>
-        <div id="button">
-          <p>Heartrate</p>
-          <button id="HRMconnectButton">Connect</button>
-        </div>
-        <div id="fileInputDiv">
-          <input type="file" id="fileInput">
-        </div>
-        <div id="link">
-          <p>Enter link from <a target=”_blank” href="https://vdo.ninja/v16/">vdo.ninja</a></p>
-          <input id="linkInput" type="text">
-        </div>
-        <div id="startButton">
-          <button id="Start">GO</button>
-        </div>
-        <div id="guideButton">
-          <button id="guide">Userguide</button>
-        </div>
       </div>
-    </section>
-  
-    <section class="metrics" >
-      <div id="metrics" style="visibility: hidden;">
-        <div id="hrm">
-          <p><span id="heartRateValue">- </span> <i id="icon" class="fa-solid fa-heart"></i></p>
+      <section class="workout" id="workout_status">
+        <div id="workout" style="visibility: hidden;">
         </div>
-        <div id="time">
-          <p><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></p>
+        <div id="workoutProgressBar" style="visibility: hidden;">
         </div>
-      </div>
-    </section>
-  </main>
+        
+      </section>
+      <section class="connectDevices" id="mainMenu">
+        <div id="connectDevices">
+          <h1>FLOWCYCLE</h1>
+          <p>Connect your devices</p>
+          <div id="button">
+            <p>Heartrate</p>
+            <button id="HRMconnectButton">Connect</button>
+          </div>
+          <div id="fileInputDiv">
+            <input type="file" id="fileInput">
+          </div>
+          <div id="link">
+            <p>Enter link from <a target=”_blank” href="https://vdo.ninja/v16/">vdo.ninja</a></p>
+            <input id="linkInput" type="text">
+          </div>
+          <div id="startButton">
+            <button id="Start">GO</button>
+          </div>
+          <div id="guideButton">
+            <button id="guide">Userguide</button>
+          </div>
+        </div>
+      </section>
+    
+      <section class="metrics" >
+        <div id="metrics" style="visibility: hidden;">
+          <div id="hrm">
+            <p><span id="heartRateValue">- </span> <i id="icon" class="fa-solid fa-heart"></i></p>
+          </div>
+          <div id="time">
+            <p><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
