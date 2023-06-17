@@ -11,7 +11,7 @@ body {
     padding: 0;
     background-image: url(/Pictures/TDMovieOut2.0.png);
     background-size: cover;
-    background-size: 110%;
+    background-size: 100%;
     background-repeat: no-repeat;
   }
   main {
@@ -48,7 +48,7 @@ video{
   align-items: center;
   max-width: 400px;
   margin: auto;
-  margin-top: 12%;
+  margin-top: 8%;
   
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
